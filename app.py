@@ -28,33 +28,31 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
-      return 'ji'
+        return 'ji'
 
     @app.route('/actors', methods=['GET'])
     @requires_auth('get:actors')
     def getAcotrs(jwt):
+        actors = Actors.query.all()
+        data = []
+        for actor in actors:
+            moviesList = []
+            movies = ActorMoviesMap.query.filter_by(Actor_id=actor.id).join(Movies).all()
+            for movie in movies:
+              moviesList.append({
+                'title': movie.Movies.title
+                })
+           
+              data.append({
+                'Name': actor.name,
+                'Age': actor.age,
+                'Gender': actor.gender,
+                'moviesList': moviesList
+                })
 
-      actors = Actors.query.all()
-      data =[]
-  
-      for actor in actors:
-        moviesList = []
-        movies = ActorMoviesMap.query.filter_by(Actor_id=actor.id).join(Movies).all()
-        for movie in movies:
-          moviesList.append({
-            'title': movie.Movies.title
-          })
-
-        data.append({
-          'Name': actor.name,
-          'Age': actor.age,
-          'Gender': actor.gender,
-          'moviesList': moviesList
-          })
-
-      return jsonify({
-                      'actors': data
-                      })
+        return jsonify({
+                        'actors': data
+                        })
 
     @app.route('/movies', methods=['GET'])
     @requires_auth('get:movies')
