@@ -11,7 +11,7 @@ from models import (setup_db, db_drop_and_create_all,
 
 class test(unittest.TestCase):
     """This class represents the casting agency test case"""
-    print('x')
+
 
     def setUp(self):
         """Define test variables and initialize app."""
