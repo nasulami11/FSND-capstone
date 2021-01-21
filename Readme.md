@@ -1,17 +1,174 @@
+Casting Agency
+-----
+
+## Introduction
+
+is app for casting agency to be used be the casting assitant and casting dirctor and executive producer to add movies and actors 
+
+## Api's
+
+URL : http://fsnd-capstone-proj01.herokuapp.com
+
+GET '/actors'
+to view Actors 
+
+
+-- response : 
+
+{
+    "actors": [
+        {
+            "Age": 51,
+            "Gender": "Male",
+            "Name": "Tom",
+            "moviesList": [
+                {
+                    "title": "terminal"
+                }
+            ]
+        },
+        {
+            "Age": 45,
+            "Gender": "Female",
+            "Name": "jennifer",
+            "moviesList": [
+                {
+                    "title": "bad bosess"
+                }
+            ]
+        }
+    ]
+}
+
+##############
+
+GET '/movies'
+to view Movies 
+
+
+-- response : 
+
+{
+    "actors": [
+        {
+            "actorsList": [
+                {
+                    "name": "jennifer"
+                }
+            ],
+            "relaseDate": "Thu, 21 Jan 2021 00:00:00 GMT",
+            "title": "bad bosess"
+        },
+        {
+            "actorsList": [
+                {
+                    "name": "Tom"
+                }
+            ],
+            "relaseDate": "Thu, 21 Jan 2021 00:00:00 GMT",
+            "title": "terminal"
+        }
+    ]
+}
+
+
+POST '/actor'
+to add a new actor 
+
+-- request:
+
+{
+    "Age": 12,
+    "Gender": "male",
+    "Name": "naser"
+}
+
+-- response :
+
+{
+    "Success": true
+}
+
+
+POST '/movie'
+to add a new movie 
+
+-- request:
+
+{
+    "relaseDate": "Mon, 11 Jan 2021 00:00:00 GMT",
+    "title": " daykkk"
+}
+
+-- response :
+
+{
+    "Success": true
+}
+
+
+PATCH '/actor/{{actor_id}}'
+update actor info 
+
+-- request:
+
+{
+    "Age": 12,
+    "Gender": "male",
+    "Name": "naser"
+}
+
+-- response :
+
+{
+    "Success": true
+}
+
+
+PATCH '/movie/{{movie_id}}'
+update actor info 
+
+-- request:
+
+{
+    "relaseDate": "Mon, 11 Jan 2021 00:00:00 GMT",
+    "title": " daykkddddk"
+}
+-- response :
+
+{
+    "Success": true
+}
+
+DELETE '/actor/{{actor_id}}'
+
+
+-- response :
+
+{
+    "Success": true
+}
+
+
+DELETE '/movie/{{movie_id}}'
+
+
+-- response :
+
+{
+    "Success": true
+}
+
+
+# Auth Details 
+URL to retrive access token
 https://dev-s6boul1u.us.auth0.com/authorize?audience=CastingAgency&response_type=token&client_id=aHTOQ3S6bwR1FgISLefCzxbKoR0PtV4v&redirect_uri=http://localhost:5000/login-result
 
 
-postgres://lcfwshsffyrxbi:d2deecc8925432f66661e25fd1925c204c7cf7d598bbcebc864a744cb8decc15@ec2-3-220-98-137.compute-1.amazonaws.com:5432/d2q4sdc83uvtru
 
-testcastingexc41000@gmail.com
+casting assistant email address :testcastingassistant410000@gmail.com
+casting dirctor  email address :testcastingdirctor41000@gmail.com
+executive producer  email address:testcastingexc41000@gmail.com
 
-http://localhost:5000/login-result#access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlOcko2VS1VY3hUZy1jajYxcm1zSSJ9.eyJpc3MiOiJodHRwczovL2Rldi1zNmJvdWwxdS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjAwMzk4MDYxNTIyMTgwMDZhM2M5ODA3IiwiYXVkIjoiQ2FzdGluZ0FnZW5jeSIsImlhdCI6MTYxMTE4NTM2NywiZXhwIjoxNjExMjcxNzY3LCJhenAiOiJhSFRPUTNTNmJ3UjFGZ0lTTGVmQ3p4YktvUjBQdFY0diIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.sk3q0vfTdr6clcYzKBQQsOYAjoqiU0VUff5NcT9g-zJFJRxmUrAkin6grNfG3swyqHwCwYKfwVZbLl3xDxGbiFmT76nSKI2hBJZLdh2lZRZo8DSHy0gouD39jL6G9iJYXeVBO5bFQyczO8t38uQldxu8ePzPZyC2lDivK0W28EMADX0kRnQT0-Ek-qchL6-AR6wGbFSvCCGO9NmPetNmr-K7TmyuuRxAahweTkUoaDrAdzhElclTeD9RpbEkQ3AEAf_YcQhwbC1fwm2oGe10ef671asahsys937GZGtE8HeNTtNuVqFS6AUol2IdU9lSWBEpJQbcvLtB4yWAn_hQvg&expires_in=86400&token_type=Bearer
+password : Test123-
 
-
-testcastingassistant410000@gmail.com
-
-http://localhost:5000/login-result#access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlOcko2VS1VY3hUZy1jajYxcm1zSSJ9.eyJpc3MiOiJodHRwczovL2Rldi1zNmJvdWwxdS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjAwMzk3NzIxMzIzZWQwMDZhZmNlY2NhIiwiYXVkIjoiQ2FzdGluZ0FnZW5jeSIsImlhdCI6MTYxMTE4NTQ4NSwiZXhwIjoxNjExMjcxODg1LCJhenAiOiJhSFRPUTNTNmJ3UjFGZ0lTTGVmQ3p4YktvUjBQdFY0diIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiXX0.o6il8pXEBIyl9clAz5KGj83sCdR1Y_CbM6A6FrW-Yg2H_g9MtZjfqWP90eEwJxGaLYgIzFvzMO7Z1hZvuvYb0-_fAtmRJ-uMJ_nJCn5AJjzakqQuJ5D72ZUZPGGkvdc19x_JS36IiPZfRG7KvGLLZGL1dbaJ8X7KDLikUM_tQdV6bbOdm2E3KyWdquSu89jSxfI8f3gNk2ldcu2QpVMtxpIGfjDeqSGi8eElVgMQDOUafXnunpUwyj7PsuCmCD9q4ggxGRpp9zdJ5DNp_KAMAWN_rvDRDfaHBfYJYrkQXdqSraJeNxHbYBEkbGLTBByyazVJZQlPQ_1Bhahzc1LNAQ&expires_in=86400&token_type=Bearer
-
-testcastingdirctor41000@gmail.com
-
-http://localhost:5000/login-result#access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlOcko2VS1VY3hUZy1jajYxcm1zSSJ9.eyJpc3MiOiJodHRwczovL2Rldi1zNmJvdWwxdS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjAwMzk3ZDEzMjI1ZjkwMDc3Y2ZkZjU5IiwiYXVkIjoiQ2FzdGluZ0FnZW5jeSIsImlhdCI6MTYxMTE4NTU4MiwiZXhwIjoxNjExMjcxOTgyLCJhenAiOiJhSFRPUTNTNmJ3UjFGZ0lTTGVmQ3p4YktvUjBQdFY0diIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.kPdGZK3GUB19PBQgyqZEWzkWy-X-c-ambcG5M075R6u7YtkaAJ7YuwP5FYLEXcG3ma6q4-vsvDcrYU-nZEThC_BvmJoLP6iMxeQDjwIZq5wesgPepOoj6Y_ptY3nwr3VJ336g4NEeJXeOVSFK_SiGcMVEOXVV6mMmfbFghABgR-M-UBFWcIwrcTBZdmVKXUdFLqF7atzuxO68tSbkA2KVZpfmtWpE37tup2rOz_e8TYtPS4YFnGXaXFmtkULipHR_0hwakX9DKpKGHKca9vzNkjju01Oh2bthjoCw3n_Rxq0KXNSlu_sV0pL7SM8TJ5gY_cASToBj4owmieSPErxXg&expires_in=86400&token_type=Bearer
