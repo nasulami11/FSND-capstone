@@ -10,45 +10,45 @@ AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
 ALGORITHMS = os.environ['ALGORITHMS']
 API_AUDIENCE = os.environ['API_AUDIENCE']
 
-## AuthError Exception
+# AuthError Exception
 '''
 AuthError Exception
 A standardized way to communicate auth failure modes
 '''
+
+
 class AuthError(Exception):
     def __init__(self, error, status_code):
         self.error = error
         self.status_code = status_code
 
 
-## Auth Header
+# Auth Header
 
 
 def get_token_auth_header():
-   if 'Authorization' not in request.headers:
-       raise AuthError({
+    if 'Authorization' not in request.headers:
+        raise AuthError({
             'code': 'invalid_header',
             'description': '.'
-            }, 401)
-    
-   auth = request.headers['Authorization']
-   headersParts = auth.split(' ')
+        }, 401)
 
-   if len(headersParts) != 2:
-       raise AuthError({
+    auth = request.headers['Authorization']
+    headersParts = auth.split(' ')
+
+    if len(headersParts) != 2:
+        raise AuthError({
             'code': 'invalid_header',
             'description': '.'
-            }, 401)
+        }, 401)
 
-
-   if headersParts[0] != 'Bearer':
+    if headersParts[0] != 'Bearer':
         raise AuthError({
             'code': 'invalid_header',
             'description': 'token should include Bearer'
-            }, 401)
+        }, 401)
 
-
-   return headersParts[1]
+    return headersParts[1]
 
 
 def check_permissions(permission, payload):
@@ -56,9 +56,7 @@ def check_permissions(permission, payload):
         raise AuthError({
             'code': 'invalid_claims',
             'description': 'Permissions not included in JWT.'
-            }, 400)
-
-
+        }, 400)
 
     if permission not in payload['permissions']:
         raise AuthError({
@@ -96,11 +94,9 @@ def verify_decode_jwt(token):
             algorithms=ALGORITHMS,
             audience=API_AUDIENCE,
             issuer='https://' + AUTH0_DOMAIN + '/'
-            )
+        )
 
-    
     return payload
-
 
 
 def requires_auth(permission=''):
