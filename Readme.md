@@ -1,6 +1,7 @@
 https://dev-s6boul1u.us.auth0.com/authorize?audience=CastingAgency&response_type=token&client_id=aHTOQ3S6bwR1FgISLefCzxbKoR0PtV4v&redirect_uri=http://localhost:5000/login-result
 
 
+postgres://lcfwshsffyrxbi:d2deecc8925432f66661e25fd1925c204c7cf7d598bbcebc864a744cb8decc15@ec2-3-220-98-137.compute-1.amazonaws.com:5432/d2q4sdc83uvtru
 
 testcastingexc41000@gmail.com
 
